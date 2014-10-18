@@ -41,4 +41,5 @@ RSpec.configure do |config|
   config.order = "random"
 
   config.include Capybara::DSL
+  config.include Devise::TestHelpers, type: :controller
 end

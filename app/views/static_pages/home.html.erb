@@ -2,5 +2,7 @@
 
 <h1>Magic leadgen rainbows</h1>
 <p>Unicorn is the ultimate leadgen app</p>
-<a href="#" class="btn btn-default">Log in</a>
-<a href="#" class="btn btn-primary">Sign up now</a>
+<% if !signed_in? %>
+	<a href="<%= new_user_session_path %>" class="btn btn-default">Log in</a>
+	<a href="<%= new_user_registration_path %>" class="btn btn-primary">Sign up now</a>
+<% end %>
