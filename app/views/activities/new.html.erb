@@ -1,0 +1,14 @@
+<% provide(:title, 'Create new activity') %>
+<h1>Create new activity</h1>
+
+<%= simple_form_for @activity do |f| %>
+	<%= f.input :name, required: true, autofocus: true %>
+	<%= f.input :description, required: true %>
+	<%= f.input :creator_id, :as => :hidden %>
+	<%= f.input :is_public, label: 'Visibility', inline_label: 'Set this activity public',
+		hint: "This activity will be displayed to all users if you tick this box" %>
+	<%= f.input :is_live, label: 'Status', inline_label: 'Set this activity live',
+		hint: "This activity will not be displayed unless you tick this box" %>
+	<%= f.submit "Create new activity" %>
+	<%= link_to "back to activity list", activities_path %>
+<% end %>

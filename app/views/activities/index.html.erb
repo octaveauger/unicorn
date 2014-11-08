@@ -1,0 +1,9 @@
+<% provide(:title, "List of all activities") %>
+<h1>All activities</h1>
+<a href="<%= new_activity_path %>" class="btn btn-primary">Add new activity</a>
+<% if @activities.any? %>
+	<table class="table">
+		<%= render partial: 'activities/activity', collection: @activities %>
+	</table>
+	<%= will_paginate @activities %>
+<% end %>

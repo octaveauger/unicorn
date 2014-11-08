@@ -2,6 +2,9 @@
   <div class="container">
     <ul class="nav navbar-nav pull-right">
     	<% if signed_in? %>
+    		<% if admin_user? %>
+	        	<li><%= link_to "Activities", activities_path %></li>
+    		<% end %>
 	        <li><%= link_to "Log out", destroy_user_session_path, method: "delete" %></li>
 	    <% else %>
 	        <li><%= link_to "Log in", new_user_session_path %></li>

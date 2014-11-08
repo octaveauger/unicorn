@@ -1,6 +1,7 @@
 Unicorn::Application.routes.draw do
   devise_for :users
   root "static_pages#home"
+  resources :activities, only: [:index, :new, :create, :destroy, :edit, :update]
 
 
   # The priority is based upon order of creation: first created -> highest priority.
