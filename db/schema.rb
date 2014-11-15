@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141018152318) do
+ActiveRecord::Schema.define(version: 20141115155145) do
 
   create_table "activities", force: true do |t|
     t.string   "name"
@@ -23,14 +23,16 @@ ActiveRecord::Schema.define(version: 20141018152318) do
     t.datetime "updated_at"
   end
 
-  create_table "activity_trails", force: true do |t|
+  create_table "user_activities", force: true do |t|
     t.integer  "user_id"
-    t.string   "action"
-    t.datetime "time"
     t.integer  "activity_id"
+    t.boolean  "is_displayed"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "user_activities", ["activity_id"], name: "index_user_activities_on_activity_id"
+  add_index "user_activities", ["user_id"], name: "index_user_activities_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false

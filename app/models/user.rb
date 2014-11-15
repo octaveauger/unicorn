@@ -3,6 +3,14 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :activities, foreign_key: "creator_id", dependent: :destroy
-  has_many :activity_trails, dependent: :destroy
+  
+  has_many :user_activities
+  has_many :activities, through: :user_activities, foreign_key: "creator_id"
+  has_many :activity_trails
+  
+  after_create :generate_default_activities
+
+  def generate_default_activities
+  	UserActivity.generate_initial_activities(self)
+  end
 end

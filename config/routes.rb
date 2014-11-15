@@ -1,7 +1,13 @@
 Unicorn::Application.routes.draw do
+  get "activity_trail/create"
+  get "activity_trail/destroy"
+  get "activity_trail/update"
+  get "my_activities/index"
   devise_for :users
   root "static_pages#home"
   resources :activities, only: [:index, :new, :create, :destroy, :edit, :update]
+  resources :my_activities, only: [:index]
+  resources :activity_trails, only: [:index, :create, :destroy, :update]
 
 
   # The priority is based upon order of creation: first created -> highest priority.
