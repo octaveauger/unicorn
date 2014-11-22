@@ -1,8 +1,13 @@
 class UserActivity < ActiveRecord::Base
+  include Statesman::Adapters::ActiveRecordQueries
+
   belongs_to :user
   belongs_to :activity
+  has_many :user_activity_transitions
   validates :user_id, presence: true
   validates :activity_id, presence: true
+
+  scope :visible,  -> { where(is_displayed: true) }
 
   def self.generate_initial_activities(user)
   	@activities = Activity.available_activities(user)
@@ -12,4 +17,19 @@ class UserActivity < ActiveRecord::Base
   		end
   	end
   end
+
+  # Initialize the state machine
+  def state_machine
+    @state_machine ||= UserActivityStateMachine.new(self, transition_class: UserActivityTransition)
+  end
+
+  private
+
+    def self.transition_class
+      UserActivityTransition
+    end
+
+    def self.initial_state
+      UserActivityStateMachine.initial_state
+    end
 end

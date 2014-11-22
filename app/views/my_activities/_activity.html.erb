@@ -1,1 +1,5 @@
-<p><%= activity.name %></p>
+<div class="col-md-3 col-sm-4 col-xs-6">
+	<button class="btn btn-lg col-xs-12 user-activity user-activity-<%= activity.state %>" data-role="transition-user-activity" data-id="<%= activity.id %>" data-state="<%= activity.state_machine.current_state %>" data-url="<%= myactivities_transition_path %>" data-toggle="tooltip" data-placement= "top" title="<%= activity.activity.description %>">
+		<%= activity.activity.name %>
+	</button>
+</div>

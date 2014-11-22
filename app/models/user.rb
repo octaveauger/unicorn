@@ -4,9 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   
-  has_many :user_activities
-  has_many :activities, through: :user_activities, foreign_key: "creator_id"
-  has_many :activity_trails
+  has_many :user_activities, dependent: :destroy
+  has_many :activities, through: :user_activities, foreign_key: "creator_id", dependent: :destroy
   
   after_create :generate_default_activities
 

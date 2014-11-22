@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141115155145) do
+ActiveRecord::Schema.define(version: 20141122160603) do
 
   create_table "activities", force: true do |t|
     t.string   "name"
@@ -29,10 +29,23 @@ ActiveRecord::Schema.define(version: 20141115155145) do
     t.boolean  "is_displayed"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "state",        default: "stopped"
   end
 
   add_index "user_activities", ["activity_id"], name: "index_user_activities_on_activity_id"
   add_index "user_activities", ["user_id"], name: "index_user_activities_on_user_id"
+
+  create_table "user_activity_transitions", force: true do |t|
+    t.string   "to_state"
+    t.text     "metadata",         default: "{}"
+    t.integer  "sort_key"
+    t.integer  "user_activity_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_activity_transitions", ["sort_key", "user_activity_id"], name: "index_user_activity_transitions_on_two_things", unique: true
+  add_index "user_activity_transitions", ["user_activity_id"], name: "index_user_activity_transitions_on_user_activity_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false

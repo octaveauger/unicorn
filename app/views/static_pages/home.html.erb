@@ -1,8 +1,16 @@
 <% provide(:title, "Magic leadgen rainbows") %>
 
-<h1>Magic leadgen rainbows</h1>
-<p>Unicorn is the ultimate leadgen app</p>
-<% if !signed_in? %>
-	<a href="<%= new_user_session_path %>" class="btn btn-default">Log in</a>
-	<a href="<%= new_user_registration_path %>" class="btn btn-primary">Sign up now</a>
-<% end %>
+<header>
+    <div class="container">
+        <div class="intro-text">
+            <div class="intro-lead-in">Get Productive Today!</div>
+            <div class="intro-heading">Free Activity Tracking</div>
+            <% if !signed_in? %>
+				<a href="<%= new_user_session_path %>" class="btn btn-default">Log in</a>
+				<a href="<%= new_user_registration_path %>" class="btn btn-primary">Sign up now</a>
+            <% else %>
+                <a href="<%= myactivities_path %>" class="btn btn-primary">Start tracking now</a>
+			<% end %>
+        </div>
+    </div>
+</header>

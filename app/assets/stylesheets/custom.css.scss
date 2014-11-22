@@ -2,9 +2,20 @@
 
 /* General */
 
-body { padding-top: 70px; }
+body { padding-top: 100px; }
 
+/* User activities */
 
+.user-activity {
+	margin: 10px;
+}
+
+button.user-activity-stopped {
+	background-color: #f7f7f7;
+}
+button.user-activity-started {
+	background-color: #fed136;
+}
 /* mixins, variables, etc. */
 
 $grayMediumLight: #eaeaea;

@@ -1,3 +1,5 @@
 <% provide(title: "My activities") %>
 <h1>My Activities</h1>
+<p class="error"></p>
+<%= form_tag(controller: 'my_activities', action: 'transition') %>
 <%= render partial: 'my_activities/activity', collection: @activities %>
