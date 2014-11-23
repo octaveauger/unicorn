@@ -1,0 +1,13 @@
+<% provide(:title, "My account") %>
+<h1>Account</h1>
+<table class="table">
+	<tr>
+		<td>Your email:</td>
+		<td><%= current_user.email %></td>
+	</tr>
+	<tr>
+		<td>Your registration date:</td>
+		<td><%= ((Time.zone.now - current_user.created_at).to_i / 1.day) %> days ago, on <%= current_user.created_at.strftime("%A %d %B %Y %H:%M") %></td>
+	</tr>
+</table>
+<%= link_to "Edit your account", edit_user_registration_path %>

@@ -1,4 +1,6 @@
 class MyActivitiesController < ApplicationController
+  before_action :logged_in_user
+
   def index
   	@activities = current_user.user_activities.visible
   end

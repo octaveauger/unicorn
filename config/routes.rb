@@ -1,6 +1,7 @@
 Unicorn::Application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   root "static_pages#home"
+  get "myaccount", to: 'myaccount#index'
   get 'myactivities', to: 'my_activities#index'
   post 'myactivities/transition', to: 'my_activities#transition'
   resources :activities, only: [:index, :new, :create, :destroy, :edit, :update]
