@@ -9,6 +9,6 @@
 		hint: "This activity will be displayed to all users if you tick this box" %>
 	<%= f.input :is_live, label: 'Status', inline_label: 'Set this activity live',
 		hint: "This activity will not be displayed unless you tick this box" %>
-	<%= f.submit "Update activity" %>
+	<%= f.button :submit, "Update activity", :class => 'col-xs-offset-3' %>
 	<%= link_to "back to activity list", activities_path %>
 <% end %>
