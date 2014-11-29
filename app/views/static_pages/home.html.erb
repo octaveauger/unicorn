@@ -1,16 +1,22 @@
-<% provide(:title, "Magic leadgen rainbows") %>
+<% provide(:title, "Become efficient") %>
 
 <header>
     <div class="container">
-        <div class="intro-text">
-            <div class="intro-lead-in">Get Productive Today!</div>
-            <div class="intro-heading">Free Activity Tracking</div>
-            <% if !signed_in? %>
-				<a href="<%= new_user_session_path %>" class="btn btn-default">Log in</a>
-				<a href="<%= new_user_registration_path %>" class="btn btn-primary">Sign up now</a>
-            <% else %>
-                <a href="<%= myactivities_path %>" class="btn btn-primary">Start tracking now</a>
-			<% end %>
+        <div class="text-center">
+            <h1>Become efficient</h1>
+            <h2>Unicorn tracks what you do and tells you how focused you are</h2>
+            <p class="h3">
+                So you want to become the mean efficient machine you always dreamt to be?<br>
+                Good news: Unicorn will help you track what you do and measure your progress.
+            </p>
+            <div class="actions">
+                <% if !signed_in? %>
+    				<a href="<%= new_user_registration_path %>" class="btn btn-lg pop">Sign up now</a>
+                    <a href="<%= new_user_session_path %>" class="btn btn-lg btn-primary">Log in</a>
+                <% else %>
+                    <a href="<%= myactivities_path %>" class="btn btn-lg pop">Start tracking now</a>
+    			<% end %>
+            </div>
         </div>
     </div>
 </header>

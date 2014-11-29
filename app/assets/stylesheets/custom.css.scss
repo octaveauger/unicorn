@@ -5,6 +5,7 @@
 body {
   padding-top: 100px;
   color: #595959;
+  background-color: #f2f2f2;
   font-family: "Helvetica Neue",Arial,Helvetica,Verdana,sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -15,8 +16,68 @@ body {
   line-height: 1.5em;
 }
 
-header {
-  background-image: image-url('header-bg.jpg');
+/* Header nav */
+
+#site-navbar {
+  height: 62px;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 2000;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+  perspective: 1000;
+  -webkit-box-shadow: 0 0 2px rgba(6,8,8,0.15);
+  box-shadow: 0 0 2px rgba(6,8,8,0.15);
+}
+
+#site-navbar li:hover, #site-navbar li:focus {
+ background-color: #e0e0e0;
+}
+
+#site-navbar li.list-button:hover, #site-navbar lli.list-button:focus {
+  background-color: #fff;
+}
+
+#site-navbar a {
+  position: relative;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1.75;
+  letter-spacing: .04em;
+  color: #3a3a3a;
+  padding: 20px 18px;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#site-navbar a.btn {
+  padding: 0.75em 1.5em;
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+#site-navbar a.pop.btn:hover {
+  background: #e85c41;
+  border-color: #e85c41;
+  color: #fff !important;
+}
+
+#site-navbar .navbar-brand {
+  padding-top: 5px;
 }
 
 /* Text */
@@ -40,11 +101,21 @@ h2, .h2 {
   margin-bottom: .92em;
 }
 
+h3, .h3 {
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: bold;
+}
+
 h4, .h4 {
   font-size: 1.125em;
   line-height: 1.67em;
   margin-bottom: .33em;
   font-weight: 500;
+}
+
+.actions {
+  margin-top: 20px;
 }
 
 /* Buttons */
@@ -149,11 +220,20 @@ table {
 	margin: 10px;
 }
 
-button.user-activity-stopped {
-	background-color: #f7f7f7;
+.user-activity-stopped  {
+  background: #d3d3d3;
+  border-color: #d3d3d3;
+  color: #fff !important;
 }
-button.user-activity-started {
-	background-color: #fed136;
+.user-activity-stopped:hover {
+  background: #5d5c5d;
+  border-color: #5d5c5d;
+}
+
+.user-activity-started, .user-activity-started:hover {
+  background: #e85c41;
+  border-color: #e85c41;
+  color: #fff !important;
 }
 /* mixins, variables, etc. */
 
