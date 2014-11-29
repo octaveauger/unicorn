@@ -1,8 +1,0 @@
-<tr>
-	<td><%= link_to activity.name, edit_activity_path(activity) %></td>
-	<td><%= activity.description %></td>
-	<td><%= activity.creator_id == nil ? 'Website default' : activity.creator_id %></td>
-	<td><%= activity.is_public %></td>
-	<td><%= activity.is_live %></td>
-	<td><%= link_to "delete", activity, method: :delete, data: { confirm: "Are you sure?" }, title: "delete" %></td>
-</tr>

@@ -1,0 +1,9 @@
+<% provide(:title, "Edit a user") %>
+<h1>Edit this user</h1>
+
+<%= simple_form_for @user, :url => admin_user_path do |f| %>
+	<%= f.input :email, required: true, autofocus: true %>
+	<%= f.input :admin, label: 'Admin', inline_label: 'Make this user an admin' %>
+	<%= f.button :submit, "Update user", :class => 'col-xs-offset-3' %>
+	<%= link_to "back to user list", admin_users_path %>
+<% end %>

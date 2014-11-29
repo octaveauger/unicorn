@@ -17,7 +17,7 @@
         </li>
         <% if signed_in? %>
       		<% if admin_user? %>
-  	        	<li><%= link_to "Activities", activities_path %></li>
+  	        	<li><%= link_to "Admin", admin_path %></li>
       		<% end %>
             <li><%= link_to "My activities", myactivities_path %></li>
             <li><%= link_to "My account", myaccount_path %></li>

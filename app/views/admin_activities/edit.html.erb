@@ -1,7 +1,7 @@
-<% provide(:title, 'Create new activity') %>
-<h1>Create new activity</h1>
+<% provide(:title, "Edit an activity") %>
+<h1>Edit this activity</h1>
 
-<%= simple_form_for @activity do |f| %>
+<%= simple_form_for @activity, :url => admin_activity_path do |f| %>
 	<%= f.input :name, required: true, autofocus: true %>
 	<%= f.input :description, required: true %>
 	<%= f.input :creator_id, :as => :hidden %>
@@ -9,6 +9,6 @@
 		hint: "This activity will be displayed to all users if you tick this box" %>
 	<%= f.input :is_live, label: 'Status', inline_label: 'Set this activity live',
 		hint: "This activity will not be displayed unless you tick this box" %>
-	<%= f.button :submit, "Create new activity", :class => 'pop col-xs-offset-3' %>
-	<%= link_to "back to activity list", activities_path %>
+	<%= f.button :submit, "Update activity", :class => 'col-xs-offset-3' %>
+	<%= link_to "back to activity list", admin_activities_path %>
 <% end %>

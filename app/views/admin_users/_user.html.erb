@@ -1,0 +1,7 @@
+<tr>
+	<td><%= link_to user.email, edit_admin_user_path(user) %></td>
+	<td>Signed up <%= ((Time.zone.now - user.created_at).to_i / 1.day) %> days ago on <%= user.created_at.strftime("%d %B %Y %H:%M") %></td>
+	<td>Signed in <%= user.sign_in_count %> times (last <%= ((Time.zone.now - user.last_sign_in_at).to_i / 1.day) %> days ago) </td>
+	<td><%= user.provider == nil ? 'Email/password' : user.provider %></td>
+	<td><%= 'Admin' if user.admin %></td>
+</tr>

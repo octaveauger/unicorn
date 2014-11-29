@@ -1,10 +1,18 @@
 Unicorn::Application.routes.draw do
+  get "admin_users/index"
+  get "admin_users/edit"
+  get "admin_users/update"
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   root "static_pages#home"
   get "myaccount", to: 'myaccount#index'
   get 'myactivities', to: 'my_activities#index'
   post 'myactivities/transition', to: 'my_activities#transition'
   resources :activities, only: [:index, :new, :create, :destroy, :edit, :update]
+  get "admin", to: 'admin#index'
+  scope '/admin' do
+    resources :admin_activities, only: [:index, :new, :create, :destroy, :edit, :update]
+    resources :admin_users, only: [:index, :edit, :update]
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.
