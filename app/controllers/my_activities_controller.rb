@@ -3,6 +3,7 @@ class MyActivitiesController < ApplicationController
 
   def index
   	@activities = current_user.user_activities.visible
+    @started_transition = UserActivity.current_started_transition(current_user)
   end
 
   def transition

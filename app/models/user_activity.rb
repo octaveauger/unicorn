@@ -23,6 +23,12 @@ class UserActivity < ActiveRecord::Base
     @state_machine ||= UserActivityStateMachine.new(self, transition_class: UserActivityTransition)
   end
 
+  # Return the current started activity for that user, or nil
+  def self.current_started_transition(user)
+    started_activity = user.user_activities.in_state(:started)
+    started_activity.empty? ? nil : self.find(started_activity).state_machine.last_transition
+  end
+
   private
 
     def self.transition_class

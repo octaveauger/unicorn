@@ -1,5 +1,6 @@
-<% provide(title: "My activities") %>
+<% provide(:title, "My activities") %>
 <h1>My Activities</h1>
 <p class="error"></p>
+<div id="activity-start-time" data-date="<%= @started_transition.nil? ? DateTime.now : @started_transition.created_at %>" data-action="<%= @started_transition.nil? ? 'stop' : 'start' %>"></div>
 <%= form_tag(controller: 'my_activities', action: 'transition') %>
 <%= render partial: 'my_activities/activity', collection: @activities %>
