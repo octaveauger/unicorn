@@ -6,8 +6,11 @@ class UserActivity < ActiveRecord::Base
   has_many :user_activity_transitions
   validates :user_id, presence: true
   validates :activity_id, presence: true
-
   scope :visible,  -> { where(is_displayed: true) }
+
+  def self.available
+    visible.joins(:activity).merge(Activity.visible_to_all)
+  end
 
   def self.generate_initial_activities(user)
   	@activities = Activity.available_activities(user)
