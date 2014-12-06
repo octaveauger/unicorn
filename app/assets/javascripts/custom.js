@@ -1,5 +1,5 @@
 $(function () {
-  $('[data-toggle="tooltip"]').tooltip();
+  	$('[data-toggle="tooltip"]').tooltip();
 })
 
 function time_format_utc() {
