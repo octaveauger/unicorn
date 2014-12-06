@@ -9,9 +9,14 @@ class User < ActiveRecord::Base
   has_many :activities, through: :user_activities, foreign_key: "creator_id", dependent: :destroy
   
   after_create :generate_default_activities
+  after_create :send_welcome_email
 
   def generate_default_activities
   	UserActivity.generate_initial_activities(self)
+  end
+
+  def send_welcome_email
+    UserMailer.welcome_email(self).deliver
   end
 
   def self.find_for_google_oauth2(access_token, signed_in_resource=nil)
