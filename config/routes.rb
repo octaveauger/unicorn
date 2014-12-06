@@ -1,12 +1,10 @@
 Unicorn::Application.routes.draw do
-  get "admin_users/index"
-  get "admin_users/edit"
-  get "admin_users/update"
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   root "static_pages#home"
   get "myaccount", to: 'myaccount#index'
-  get 'myactivities', to: 'my_activities#index'
+  get 'myactivities/customise', to: 'my_activities#customise'
   post 'myactivities/transition', to: 'my_activities#transition'
+  resources :my_activities, path: 'myactivities', only: [:index, :update], as: 'myactivities'
   resources :activities, only: [:index, :new, :create, :destroy, :edit, :update]
   get "admin", to: 'admin#index'
   scope '/admin' do

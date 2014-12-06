@@ -1,0 +1,6 @@
+<div class="col-md-3 col-sm-4 col-xs-6">
+	<button class="btn btn-lg col-xs-12 user-activity" data-role="change-display-user-activity" data-id="<%= activity_customisable.id %>" data-value="<%= activity_customisable.is_displayed %>" data-url="<%= myactivity_path(activity_customisable) %>">
+		<%= activity_customisable.activity.name %>
+		<span class="badge pull-right state-<%= activity_customisable.is_displayed ? 'on' : 'off' %>" data-role="action-tag"><%= activity_customisable.is_displayed ? 'on' : 'off' %></span>
+	</button>
+</div>

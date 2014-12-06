@@ -122,6 +122,11 @@ h4, .h4 {
   margin-top: 20px;
 }
 
+h1 .controls {
+  font-size: 18px;
+  float: right;
+}
+
 /* Buttons */
 
 a, a:visited {
@@ -151,6 +156,10 @@ a, a:visited {
   background: #e85c41;
   border-color: #e85c41;
   color: #fff !important;
+}
+
+button .badge.state-on {
+  background-color: #e85c41;
 }
 
 /* Form */

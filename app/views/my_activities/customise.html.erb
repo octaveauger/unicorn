@@ -1,0 +1,8 @@
+<% provide(:title, 'Customise your activities') %>
+<h1>
+	Customise your activities
+	<span class="controls"><%=link_to "back to tracking", myactivities_path %></span>
+</h1>
+
+<h2>Toggle to change which activities are displayed</h2>
+<%= render partial: 'my_activities/activity_customisable', collection: @activities %>

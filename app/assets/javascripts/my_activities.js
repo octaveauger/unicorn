@@ -1,4 +1,7 @@
 $(function() {
+	 // Page load: init the timer based on div data values
+	manage_timer();
+
 	// Control transitions in user activities
 	$('[data-role="transition-user-activity"]').click(function(e) {
 		manage_timer({action: 'stop'}); //pause the timer
@@ -25,8 +28,25 @@ $(function() {
 		});
 	});
 
-	 // Page load: init the timer based on div data values
-	manage_timer();
+	//Control changes in display of activities
+	$('[data-role="change-display-user-activity"]').click(function(e) {
+		e.preventDefault();
+		if($(this).attr('data-value') == 'true') var action = 'false';
+		else var action = 'true';
+		$element = $(this);
+		$.ajax({
+			type: "PATCH",
+			url: $(this).attr('data-url'),
+			data: 'user_activity[is_displayed]='+action+'&id='+$(this).attr('data-id'),
+			dataType: 'json',
+			success: function(data) {
+				$element.attr('data-value', data.is_displayed);
+				if(data.is_displayed) var status = 'on';
+				else var status = 'off';
+				$element.find('.badge').removeClass('state-off state-on').addClass('state-'+status).text(status);
+			}
+		});
+	});
 });
 
 function manage_timer(params) {
