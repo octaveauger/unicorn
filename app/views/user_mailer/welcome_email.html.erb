@@ -1,19 +1,9 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-  </head>
-  <body>
-    <h1>Welcome to Unicorn!</h1>
-    <p>
-      Thanks for signing up - Unicorn will help you become more efficient.
-    </p>
-    <p>
-      To login to the site, just follow <%= link_to 'this link', new_user_session_url %>.
-    </p>
-    <p>
-      Have a great day - you rock!<br/>
-      Octave
-    </p>
-  </body>
-</html>
+<h1>Welcome to Unicorn!</h1>
+<p>
+  Thanks for signing up - Unicorn will help you become more efficient.
+</p>
+<div class="btn"><%= link_to 'Login Now', new_user_session_url %></div>
+<p>
+  Have a great day - you rock!<br/>
+  Octave
+</p>

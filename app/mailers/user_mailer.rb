@@ -3,6 +3,9 @@ class UserMailer < ActionMailer::Base
 
   def welcome_email(user)
   	@user = user
-  	mail(to: @user.email, subject: 'Welcome to Unicorn')
+  	mail(to: @user.email, subject: 'Welcome to Unicorn') do |format|
+  		format.html { render layout: 'email_simple.html.erb' }
+  		format.text
+  	end
   end
 end
