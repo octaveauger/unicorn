@@ -1,4 +1,5 @@
 class UserMailer < ActionMailer::Base
+  include Roadie::Rails::Automatic
   default from: "octave@gocardless.com"
 
   def welcome_email(user)

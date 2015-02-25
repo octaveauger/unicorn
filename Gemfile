@@ -31,6 +31,7 @@ gem 'simple_form'
 gem 'devise', '3.4.0'
 gem 'omniauth-google-oauth2'
 gem 'statesman', '1.0.0.beta2'
+gem 'roadie-rails', '~> 1.0.4'
 
 group :doc do
   gem 'sdoc', '0.3.20', require: false
